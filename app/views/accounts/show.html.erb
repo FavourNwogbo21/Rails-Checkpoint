@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+<body class="container bg-info">
+
+<p style="color: green"><%= notice %></p>
+
+<h2>Account Details</h2>
+
+<%= render @account %>
+
+<div id="transactions">
+  <h1>Your transactions</h1>
+  <style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+ 
+  <table class="table-info">
+  <tr>
+    <th>Category</th>
+    <th>Date</th>
+    <th>Amount</th>
+    <th>Merchant</th>
+    <th>End Balance</th>
+    <th>Transaction Link</th>
+  </tr>
+  <% @account.transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.category %></td>
+    <td><%= transaction.date %></td>
+    <td><%= transaction.amount %></td>
+    <td><%= transaction.merchant %></td>
+    <td><%= @account.balance - transaction.amount %></td>
+    <td><%= link_to "Show this transaction", transaction %></td>
+  </tr>
+  <% @account.balance -= transaction.amount%>
+  <% end %>
+</table>
+
+  
+
+</div>
+<div>
+  <%= link_to "New transaction", new_transaction_path %>
+</div>
+
+<div>
+  <%= link_to "Edit this account", edit_account_path(@account) %> |
+  <%= link_to "Back to accounts", accounts_path %>
+
+  <%= button_to "Destroy this account", @account, method: :delete %>
+</div>
+</body>
+</html>
+

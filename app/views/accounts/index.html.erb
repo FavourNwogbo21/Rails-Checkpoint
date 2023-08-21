@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body class="container bg-info text-white">
+<p style="color: green"><%= notice %></p>
+
+<style>
+h1 {
+  border-style: solid;
+  border-width: thick;
+  
+}
+</style>
+
+<h1 class="display-1 p-2 mt-5">Accounts</h1>
+
+<div id="accounts">
+  <% @accounts.each do |account| %>
+    <div class="container border border-white  p-2">
+    <%= render account %>
+    <p>
+      <%= link_to "Show this account", account %>
+    </p>
+    </div>
+  <% end %>
+</div>
+
+<button class="btn btn-secondary type="button">
+<%= link_to "New account", new_account_path %>
+</button>
+
+</body>
+</html>
