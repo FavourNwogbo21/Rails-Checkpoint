@@ -39,10 +39,10 @@ table, th, td {
     <td><%= transaction.date %></td>
     <td><%= transaction.amount %></td>
     <td><%= transaction.merchant %></td>
-    <td><%= @account.balance - transaction.amount %></td>
+    <td><%= @account.opening_balance - transaction.amount %></td>
     <td><%= link_to "Show this transaction", transaction %></td>
   </tr>
-  <% @account.balance -= transaction.amount%>
+  <% @account.opening_balance -= transaction.amount%>
   <% end %>
 </table>
 

@@ -4,7 +4,7 @@ erDiagram
 ACCOUNT ||--o{ TRANSACTION : Account_id
     ACCOUNT {
         string Name
-        float Balance
+        float Opening Balance
         integer ID
     }
     TRANSACTION {
