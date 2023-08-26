@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'main_pages#index'
   resources :main_pages
   resources :transactions
   resources :accounts
